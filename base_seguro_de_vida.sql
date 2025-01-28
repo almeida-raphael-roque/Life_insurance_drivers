@@ -4,7 +4,7 @@ cat.fantasia as Unidade,
 cata.fantasia as Cliente,
 irs.id as Conjunto,
 irsc.id as Coverage,
-b.description as "Benefício",
+b.description as Beneficio,
 
 CASE 
 WHEN TRANSLATE(
@@ -73,7 +73,7 @@ cat.fantasia as Unidade,
 cata.fantasia as Cliente,
 irs.id as Conjunto,
 irsc.id as Coverage,
-b.description as "Benefício",
+b.description as Beneficio,
 
 CASE 
 WHEN TRANSLATE(
@@ -142,7 +142,7 @@ cat.fantasia as Unidade,
 cata.fantasia as Cliente,
 irs.id as Conjunto,
 irsc.id as Coverage,
-b.description as "Benefício",
+b.description as Beneficio,
 
 CASE 
 WHEN TRANSLATE(
@@ -199,4 +199,4 @@ LEFT JOIN viavante.category c ON c.id = ty.id_category
 LEFT JOIN viavante.benefits b ON b.id = c.id_benefits -- ^^joins para puxar beneficios
 LEFT JOIN viavante.insurance_people ip ON ip.id = irsc.id_people --join para puxar posteriormente apenas motoristas
 
-WHERE irsc.id_driver IS NOT NULL
+WHERE irsc.id_driver IS NOT NULL;
