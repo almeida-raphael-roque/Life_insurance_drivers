@@ -1,10 +1,10 @@
 SELECT 
-cat.fantasia as unidade,
---
-cata.fantasia as cliente,
-irs.id as conjunto,
-irsc.id as coverage,
-b.description,
+cat.fantasia as Unidade,
+--falta e-mail unidade
+cata.fantasia as Cliente,
+irs.id as Conjunto,
+irsc.id as Coverage,
+b.description as Benefício,
 
 CASE 
 WHEN TRANSLATE(
@@ -36,13 +36,17 @@ ELSE
     )
 )
 
-AS 'placa'
+END AS "Placa",
 
-    
+CASE 
+WHEN id_driver IS NOT NULL THEN ip.name
+ELSE NULL
+END AS "Motorista"
+
 FROM
 insurance_registration ir
 LEFT JOIN insurance_reg_set irs ON irs.parent = ir.id
-LEFT JOIN insurance_reg_set_coverage irsc ON irs.parent = ir.id
+LEFT JOIN insurance_reg_set_coverage irsc ON irsc.parent = ir.id
 LEFT JOIN insurance_reg_set_cov_trailer irsct ON irsct.parent = irsc.id -- ^^joins base
 LEFT JOIN representante r ON r.codigo = ir.id_unity
 LEFT JOIN cliente cli ON cli.codigo = ir.customer_id
@@ -55,3 +59,7 @@ LEFT JOIN price_list_benefits plb ON plb.id = irsc.id_price_list
 LEFT JOIN type_category ty ON ty.id = plb.id_type_category 
 LEFT JOIN category c ON c.id = ty.id_category
 LEFT JOIN benefits b ON b.id = c.id_benefits -- ^^joins para puxar benefícios 
+LEFT JOIN insurance_people ip ON ip.id = irsc.id_people
+
+WHERE id_driver IS NOT NULL
+
