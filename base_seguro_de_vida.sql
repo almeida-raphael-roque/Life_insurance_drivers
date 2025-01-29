@@ -201,3 +201,5 @@ LEFT JOIN viavante.insurance_people ip ON ip.id = irsc.id_people --join para pux
 
 WHERE irsc.id_driver IS NOT NULL;
 
+
+
