@@ -40,6 +40,8 @@ df['e_mail'] = df['e_mail'].apply(remove_diacritics)
 df = df.reset_index(drop=True)
 
 
+
+
 #LOAD
 
 path_to_save = r'C:\Users\raphael.almeida\Documents\SQL\Seguro de Vida Motorista'

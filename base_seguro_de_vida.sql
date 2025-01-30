@@ -41,7 +41,8 @@ END AS "Placa",
 CASE 
 WHEN id_driver IS NOT NULL THEN ip.name
 ELSE NULL
-END AS "Motorista"
+END AS "Motorista",
+ctt.e_mail
 
 FROM
 silver.insurance_registration ir
@@ -51,6 +52,7 @@ LEFT JOIN silver.insurance_reg_set_cov_trailer irsct ON irsct.parent = irsc.id -
 LEFT JOIN silver.representante r ON r.codigo = ir.id_unity
 LEFT JOIN silver.cliente cli ON cli.codigo = ir.customer_id
 LEFT JOIN silver.catalogo cat ON cat.cnpj_cpf = r.cnpj_cpf
+LEFT JOIN silver.contato ctt ON ctt.cnpj_cpf = cat.cnpj_cpf
 LEFT JOIN silver.catalogo cata ON cata.cnpj_cpf = cli.cnpj_cpf -- ^^joins para unidade e cliente (cata é cliente, cat é unidade)
 LEFT JOIN silver.insurance_vehicle iv ON iv.id = irsc.id_vehicle 
 LEFT JOIN silver.insurance_trailer it ON it.id = irsc.id_trailer 
@@ -110,7 +112,8 @@ END AS "Placa",
 CASE 
 WHEN id_driver IS NOT NULL THEN ip.name
 ELSE NULL
-END AS "Motorista"
+END AS "Motorista",
+ctt.e_mail
 
 FROM
 stcoop.insurance_registration ir
@@ -120,6 +123,7 @@ LEFT JOIN stcoop.insurance_reg_set_cov_trailer irsct ON irsct.parent = irsc.id -
 LEFT JOIN stcoop.representante r ON r.codigo = ir.id_unity
 LEFT JOIN stcoop.cliente cli ON cli.codigo = ir.customer_id
 LEFT JOIN stcoop.catalogo cat ON cat.cnpj_cpf = r.cnpj_cpf
+LEFT JOIN stcoop.contato ctt ON ctt.cnpj_cpf = cat.cnpj_cpf
 LEFT JOIN stcoop.catalogo cata ON cata.cnpj_cpf = cli.cnpj_cpf -- ^^joins para unidade e cliente (cata é cliente, cat é unidade)
 LEFT JOIN stcoop.insurance_vehicle iv ON iv.id = irsc.id_vehicle 
 LEFT JOIN stcoop.insurance_trailer it ON it.id = irsc.id_trailer 
@@ -179,7 +183,8 @@ END AS "Placa",
 CASE 
 WHEN id_driver IS NOT NULL THEN ip.name
 ELSE NULL
-END AS "Motorista"
+END AS "Motorista",
+ctt.e_mail
 
 FROM
 viavante.insurance_registration ir
@@ -189,6 +194,7 @@ LEFT JOIN viavante.insurance_reg_set_cov_trailer irsct ON irsct.parent = irsc.id
 LEFT JOIN viavante.representante r ON r.codigo = ir.id_unity
 LEFT JOIN viavante.cliente cli ON cli.codigo = ir.customer_id
 LEFT JOIN viavante.catalogo cat ON cat.cnpj_cpf = r.cnpj_cpf
+LEFT JOIN viavante.contato ctt ON ctt.cnpj_cpf = cat.cnpj_cpf
 LEFT JOIN viavante.catalogo cata ON cata.cnpj_cpf = cli.cnpj_cpf -- ^^joins para unidade e cliente (cata é cliente, cat é unidade)
 LEFT JOIN viavante.insurance_vehicle iv ON iv.id = irsc.id_vehicle 
 LEFT JOIN viavante.insurance_trailer it ON it.id = irsc.id_trailer 
