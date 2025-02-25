@@ -9,7 +9,7 @@ import win32com.client as win32
 
 
 #-----------------EXTRACT
-path_to_query = r"C:\Users\raphael.almeida\Documents\Projetos\Seguro de Vida Motorista\base_seguro_de_vida.sql"
+path_to_query = r"C:\Users\raphael.almeida\Documents\Projetos\Seguro de Vida Motorista\listagem_mestra_ajustada.sql"
 
 with open (path_to_query,'r') as reading:
     query_readed = reading.read()
