@@ -70,7 +70,7 @@ left join  silver.insurance_people ip ON ip.id = irsc.id_people --motoristas
 
 where iss.description = 'ATIVO'
 and issc.description = 'ATIVO'
-and plb.id IN (22965, 22966)
+
 
 ----------------------------------------------------------------------
 UNION ALL
@@ -149,7 +149,7 @@ left join  stcoop.insurance_people ip ON ip.id = irsc.id_people --motoristas
 
 where iss.description = 'ATIVO'
 and issc.description = 'ATIVO'
-and plb.id IN (2934, 2935)
+
 
 ----------------------------------------------------------------------
 UNION ALL
@@ -227,6 +227,6 @@ left join  viavante.insurance_people ip ON ip.id = irsc.id_people --motoristas
 
 where iss.description = 'ATIVO'
 and issc.description = 'ATIVO'
-and plb.id IN (30912)
+
 
 
