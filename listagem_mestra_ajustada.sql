@@ -68,8 +68,8 @@ left join silver.insurance_trailer itt ON itt.id = irsct.id_trailer --placas
 
 left join  silver.insurance_people ip ON ip.id = irsc.id_people --motoristas
 
-where iss.description = 'ATIVO'
-and issc.description = 'ATIVO'
+where iss.id = 7
+and issc.id = 11
 
 
 ----------------------------------------------------------------------
@@ -147,8 +147,8 @@ left join stcoop.insurance_trailer itt ON itt.id = irsct.id_trailer --placas
 
 left join  stcoop.insurance_people ip ON ip.id = irsc.id_people --motoristas
 
-where iss.description = 'ATIVO'
-and issc.description = 'ATIVO'
+where iss.id = 7
+and issc.id = 11
 
 
 ----------------------------------------------------------------------
@@ -225,8 +225,8 @@ left join viavante.insurance_trailer itt ON itt.id = irsct.id_trailer --placas
 
 left join  viavante.insurance_people ip ON ip.id = irsc.id_people --motoristas
 
-where iss.description = 'ATIVO'
-and issc.description = 'ATIVO'
+where iss.id = 7
+and issc.id = 11
 
 
 
