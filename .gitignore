@@ -2,6 +2,7 @@
 *.xlsx
 *.docx
 *.pdf
+*.pptx
 test.py
 testeemail.py
 listagem_mestra_simplificada.sql

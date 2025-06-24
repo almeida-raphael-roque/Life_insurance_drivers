@@ -3,10 +3,14 @@ select distinct
 'Segtruck' as "cooperativa",
 cata.FANTASIA as "unidade",
 cat.NOME as "cliente",
+cli.CNPJ_CPF,
 ir.ID as "matricula",
 irs.ID as "conjunto",
 irsc.ID as "coverage",
-b.DESCRIPTION as "beneficio", 
+b.DESCRIPTION as "beneficio",
+irsc.id_driver, 
+irsc.id_people,
+v.descricao as "consultor",
 CASE 
 WHEN irsc.id_driver IS NOT NULL THEN ip.name
 ELSE NULL
@@ -67,6 +71,8 @@ left join silver.insurance_trailer it ON it.id = irsc.id_trailer
 left join silver.insurance_trailer itt ON itt.id = irsct.id_trailer --placas
 
 left join  silver.insurance_people ip ON ip.id = irsc.id_people --motoristas
+left join silver.vendedor v ON v.codigo = irs.id_consultant
+
 
 where iss.id = 7
 and issc.id = 11
@@ -82,10 +88,14 @@ select distinct
 'Stcoop' as "cooperativa",
 cata.FANTASIA as "unidade",
 cat.NOME as "cliente",
+cli.CNPJ_CPF,
 ir.ID as "matricula",
 irs.ID as "conjunto",
 irsc.ID as "coverage",
-b.DESCRIPTION as "beneficio", 
+b.DESCRIPTION as "beneficio",
+irsc.id_driver, 
+irsc.id_people,
+v.descricao as "consultor",
 CASE 
 WHEN irsc.id_driver IS NOT NULL THEN ip.name
 ELSE NULL
@@ -146,6 +156,7 @@ left join stcoop.insurance_trailer it ON it.id = irsc.id_trailer
 left join stcoop.insurance_trailer itt ON itt.id = irsct.id_trailer --placas
 
 left join  stcoop.insurance_people ip ON ip.id = irsc.id_people --motoristas
+left join stcoop.vendedor v ON v.codigo = irs.id_consultant
 
 where iss.id = 7
 and issc.id = 11
@@ -160,10 +171,14 @@ select distinct
 'Viavante' as "cooperativa",
 cata.FANTASIA as "unidade",
 cat.NOME as "cliente",
+cli.CNPJ_CPF,
 ir.ID as "matricula",
 irs.ID as "conjunto",
 irsc.ID as "coverage",
-b.DESCRIPTION as "beneficio", 
+b.DESCRIPTION as "beneficio",
+irsc.id_driver, 
+irsc.id_people,
+v.descricao as "consultor",
 CASE 
 WHEN irsc.id_driver IS NOT NULL THEN ip.name
 ELSE NULL
@@ -224,6 +239,7 @@ left join viavante.insurance_trailer it ON it.id = irsc.id_trailer
 left join viavante.insurance_trailer itt ON itt.id = irsct.id_trailer --placas
 
 left join  viavante.insurance_people ip ON ip.id = irsc.id_people --motoristas
+left join viavante.vendedor v ON v.codigo = irs.id_consultant
 
 where iss.id = 7
 and issc.id = 11
